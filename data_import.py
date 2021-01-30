@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import pymongo
 
 # csv file path
 homeownership_csv = "Resources/Homeownership_Rate_by_State_Pcnt.csv"
