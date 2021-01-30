@@ -27,7 +27,7 @@ ttl_gdp_by_state_df.set_index("Region Name", inplace = True)
 
 state_metrics_list = []
 
-year_range = np.arange(1984,2020)
+year_range = np.arange(2006,2020)
 
 #####################################################################  
 # loop through the range of years
@@ -75,7 +75,7 @@ def load_state_metrics():
                 state = items[0]
                 
                 state_by_year_dict['state'] = state
-                state_by_year_dict['year'] = i
+                state_by_year_dict['year'] = year
                 state_by_year_dict['homeownership rate'] = items[1]        
 
                 
