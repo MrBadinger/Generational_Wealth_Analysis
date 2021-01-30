@@ -34,89 +34,89 @@ year_range = np.arange(1984,2020)
 # loop through the range of years
 #####################################################################  
 
-for i in year_range:
-    
-    year = str(i)
-    
-    try:
-
-        homeownership = homeownership_df[year]
-    except:
-        homeownership = pd.Series(np.NaN)
-    try:   
-        bachelor_degree = bachelor_degree_df[year]    
-    except:
-        bachelor_degree = pd.Series(np.NaN)
-    try: 
-        hs_grad = hs_grad_df[year]
-    except:
-        hs_grad = pd.Series(np.NaN)
-    try: 
-        median_hh_income = median_hh_income_df[year]
-    except:
-        median_hh_income = pd.Series(np.NaN)
-    try: 
-        per_capita_income = per_capita_income_df[year]
-    except:
-        per_capita_income = pd.Series(np.NaN)
-
-    try: 
-        ttl_gdp_by_state = ttl_gdp_by_state_df[year]
-    except:
-        ttl_gdp_by_state = pd.Series(np.NaN)
-
-  
-    # loop throught the homeownership series and set the state,year, homeownership rate values
-    
-    for items in homeownership.iteritems(): 
+def load_state_metrics():
+    for i in year_range:
         
-            state_by_year_dict = {}
+        year = str(i)
+        
+        try:
 
-            state = items[0]
-            
-            state_by_year_dict['state'] = state
-            state_by_year_dict['year'] = i
-            state_by_year_dict['homeownership rate'] = items[1]        
+            homeownership = homeownership_df[year]
+        except:
+            homeownership = pd.Series(np.NaN)
+        try:   
+            bachelor_degree = bachelor_degree_df[year]    
+        except:
+            bachelor_degree = pd.Series(np.NaN)
+        try: 
+            hs_grad = hs_grad_df[year]
+        except:
+            hs_grad = pd.Series(np.NaN)
+        try: 
+            median_hh_income = median_hh_income_df[year]
+        except:
+            median_hh_income = pd.Series(np.NaN)
+        try: 
+            per_capita_income = per_capita_income_df[year]
+        except:
+            per_capita_income = pd.Series(np.NaN)
 
+        try: 
+            ttl_gdp_by_state = ttl_gdp_by_state_df[year]
+        except:
+            ttl_gdp_by_state = pd.Series(np.NaN)
+
+    
+        # loop throught the homeownership series and set the state,year, homeownership rate values
+        
+        for items in homeownership.iteritems(): 
             
-            # loop thru bachelor_degree and set the bachelor degree pcnt value              
-            for items in bachelor_degree.iteritems():  
-                if items[0] == state:
-                    state_by_year_dict['bachelor degree pcnt'] = items[1]
-                else:
-                    continue
+                state_by_year_dict = {}
+
+                state = items[0]
                 
-                # loop thru hs_grad and set the high school grad pcnt value
-            for items in hs_grad.iteritems():  
-                if items[0] == state:
-                    state_by_year_dict['high school grad pcnt'] = items[1]
-                else:
-                    continue
-                    
-                    # loop through median_hh_income and set the median hh income value
-            for items in median_hh_income.iteritems():  
-                if items[0] == state:
-                    state_by_year_dict['median hh income'] = items[1]
-                else:
-                    continue
-                        
-                        # loop through per_capita_income and set the per captia personal income value
-                for items in per_capita_income.iteritems():  
+                state_by_year_dict['state'] = state
+                state_by_year_dict['year'] = i
+                state_by_year_dict['homeownership rate'] = items[1]        
+
+                
+                # loop thru bachelor_degree and set the bachelor degree pcnt value              
+                for items in bachelor_degree.iteritems():  
                     if items[0] == state:
-                        state_by_year_dict['per captia personal income'] = items[1]
+                        state_by_year_dict['bachelor degree pcnt'] = items[1]
+                    else:
+                        continue
+                    
+                    # loop thru hs_grad and set the high school grad pcnt value
+                for items in hs_grad.iteritems():  
+                    if items[0] == state:
+                        state_by_year_dict['high school grad pcnt'] = items[1]
+                    else:
+                        continue
+                        
+                        # loop through median_hh_income and set the median hh income value
+                for items in median_hh_income.iteritems():  
+                    if items[0] == state:
+                        state_by_year_dict['median hh income'] = items[1]
                     else:
                         continue
                             
-                # loop through ttl_gdp_by_state and set the ttl gdp by state value
-                for items in ttl_gdp_by_state.iteritems():  
-                    if items[0] == state:
-                        state_by_year_dict['ttl gdp by state'] = items[1]
-                    else:
-                        continue
+                            # loop through per_capita_income and set the per captia personal income value
+                    for items in per_capita_income.iteritems():  
+                        if items[0] == state:
+                            state_by_year_dict['per captia personal income'] = items[1]
+                        else:
+                            continue
+                                
+                    # loop through ttl_gdp_by_state and set the ttl gdp by state value
+                    for items in ttl_gdp_by_state.iteritems():  
+                        if items[0] == state:
+                            state_by_year_dict['ttl gdp by state'] = items[1]
+                        else:
+                            continue
 
-            state_metrics_list.append(state_by_year_dict )
-    
-                
-state_metrics_df = pd.DataFrame(state_metrics_list)
+                state_metrics_list.append(state_by_year_dict)
+        
+                    
+    return state_metrics_list
 
-print(state_metrics_df.head())
