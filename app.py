@@ -31,22 +31,7 @@ state_metrics.insert_many(wealth_data)
 # root route
 @app.route("/")
 def home():
-    return (
-            f"<strong><h1>Welcome to the Generational Wealth Analysis API!</h1></strong>"
-            f"<br/><h3>API Syntax Examples:</h3>"
-            f"<p>Return all annual economic data for all states:</p>"
-            f"<p><strong>http://127.0.0.1:5000/api/v1.0/us-state-data</strong></p>"
-            f"Return all annual economic data for a specific state:<br/>"
-            f"<p><strong>http://127.0.0.1:5000/api/v1.0/state/California</strong></p>"
-            f"Return annual economic data for all states for a specific year"
-            f"<p><strong>http://127.0.0.1:5000/api/v1.0/year/2013</strong></p>"
-            f"Return annual economic data for a specific year and a specific state"
-            f"<p><strong>http://127.0.0.1:5000/api/v1.0/state-year/New York/2015</strong></p>"
-            f"Return annual economic data for all states by range of years"
-            f"<p><strong>http://127.0.0.1:5000/api/v1.0/year-range/2014/2018</strong></p>"
-            f"Return annual economic data for a specified state by range of years"
-            f"<p><strong>http://127.0.0.1:5000/api/v1.0/state-year-range/Colorado/2011/2019</strong></p>"
-        )
+    return render_template('flaskapp.html')
 
 # all annual economic data for all states route
 @app.route("/api/v1.0/us-state-data")

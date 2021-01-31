@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generational Wealth Analysis API</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color:  "#696969" ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="container"></div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <h2><strong>Generational Wealth Analysis API</strong></h2><hr>
+                    <p>Welcome to the Generational Wealth Analysis API. The data in this API originated and has been curated from GeoFRED (Geographical Economic Data – Federal Reserve Bank of St Louis). 
+                        Please refer to the examples on this page on how to make calls to the Generational Wealth Analysis API.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <table>
+                        <tr>
+                          <th>API Call</th>
+                          <th>Syntax</th>
+                          <th>Example</th>
+                        </tr>
+                        <tr>
+                          <td>All annual economic data for all states.</td>
+                          <td>http://127.0.0.1:5000/api/v1.0/us-state-data</td>
+                          <td>http://127.0.0.1:5000/api/v1.0/us-state-data</td>
+                        </tr>
+                        <tr>
+                            <td>All annual economic data for a specific state.</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/state/[State Name]</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/state/California</td>
+                        </tr>
+                        <tr>
+                            <td>All state economic data for a specific year.</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/year/[Year]</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/year/2013</td>
+                        </tr>
+                        <tr>
+                            <td>Economic data for a specific year and state.</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/state-year/[State Name]/[Year]</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/state-year/New York/2015</td>
+                        </tr>
+                        <tr>
+                            <td>All State economic data by range of years.</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/year-range/[Start Year]/[Last Year]</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/year-range/2014/2018</td>
+                        </tr>
+                        <tr>
+                            <td>Economic data for a specified state by range of years.</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/state-year-range/[State Name]/[Start Year]/[Last Year]</td>
+                            <td>http://127.0.0.1:5000/api/v1.0/state-year-range/Colorado/2011/2019</td>
+                        </tr>
+                      </table>
+                </div>
+            </div>          
+
+    </div>
+</body>
+</html>
