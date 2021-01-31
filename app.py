@@ -22,7 +22,7 @@ state_metrics = db.state_metrics
 # truncate exiting state metric collection
 state_metrics.remove()
 
-# retrun the data from data_import.py
+# return the data from data_import.py
 wealth_data = data_import.load_state_metrics()
 
 # insert data into mongodb
@@ -39,8 +39,18 @@ def home():
 
 # all us state data api route
 @app.route("/api/v1.0/us-state-data")
-def get_api():
+def get_all_state_data():
     documents = state_metrics.find()
+    response = []
+    for document in documents:
+        document['_id'] = str(document['_id'])
+        response.append(document)
+    
+    return jsonify(response)
+
+@app.route("/api/v1.0/<state>")
+def get_indiv_state_data(state):
+    documents = state_metrics.find({"state": state})
     response = []
     for document in documents:
         document['_id'] = str(document['_id'])
