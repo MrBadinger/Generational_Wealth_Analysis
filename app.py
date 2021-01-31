@@ -48,6 +48,7 @@ def get_all_state_data():
     
     return jsonify(response)
 
+# all us state data by an individual state api route
 @app.route("/api/v1.0/state/<state>")
 def get_indiv_state_data(state):
     documents = state_metrics.find({"state": state})
@@ -58,9 +59,21 @@ def get_indiv_state_data(state):
     
     return jsonify(response)
 
+# all us state data by specific year
 @app.route("/api/v1.0/year/<year>")
 def get_annual_data(year):
     documents = state_metrics.find({"year": year})
+    response = []
+    for document in documents:
+        document['_id'] = str(document['_id'])
+        response.append(document)
+    
+    return jsonify(response)
+
+# all us state data by specific state and year
+@app.route("/api/v1.0/state-year/<state>/<year>")
+def get_state_by_year_data(state,year):
+    documents = state_metrics.find({"state": state, "year": year})
     response = []
     for document in documents:
         document['_id'] = str(document['_id'])
