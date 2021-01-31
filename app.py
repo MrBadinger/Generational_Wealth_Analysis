@@ -29,9 +29,9 @@ state_metrics.insert_many(wealth_data)
 @app.route("/")
 def home():
     return (
-            f"Welcome to the US State Data API!<br/>"
-            f"Available Routes:<br/>"
-            f"http://127.0.0.1:5000/api/v1.0/us-state-data"
+            f"<strong><h1>Welcome to the Generational Wealth Analysis API!</h1></strong>"
+            f"<br/><h3>Available Routes:</h3><br/>"
+            f'<a href="http://127.0.0.1:5000/api/v1.0/us-state-data">US State Economic Data</a>'
         )
 
 # all us state data api route
