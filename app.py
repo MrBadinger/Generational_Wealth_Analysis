@@ -57,6 +57,16 @@ def get_indiv_state_data(state):
         response.append(document)
     
     return jsonify(response)
+
+@app.route("/api/v1.0/year/<year>")
+def get_annual_data(year):
+    documents = state_metrics.find({"year": year})
+    response = []
+    for document in documents:
+        document['_id'] = str(document['_id'])
+        response.append(document)
+    
+    return jsonify(response)
    
 if __name__ == "__main__":
     app.run(debug=True)
