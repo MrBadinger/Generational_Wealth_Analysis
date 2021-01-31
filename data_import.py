@@ -58,7 +58,6 @@ def load_state_metrics():
             per_capita_income = per_capita_income_df[year]
         except:
             per_capita_income = pd.Series(np.NaN)
-
         try: 
             ttl_gdp_by_state = ttl_gdp_by_state_df[year]
         except:
