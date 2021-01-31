@@ -19,6 +19,9 @@ client = pymongo.MongoClient(conn)
 db = client.us_state
 state_metrics = db.state_metrics
 
+# truncate exiting state metric collection
+state_metrics.remove()
+
 # retrun the data from data_import.py
 wealth_data = data_import.load_state_metrics()
 
