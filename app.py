@@ -48,7 +48,7 @@ def get_all_state_data():
     
     return jsonify(response)
 
-@app.route("/api/v1.0/<state>")
+@app.route("/api/v1.0/state/<state>")
 def get_indiv_state_data(state):
     documents = state_metrics.find({"state": state})
     response = []
