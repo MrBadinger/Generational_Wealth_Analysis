@@ -65,8 +65,7 @@ def load_state_metrics():
             ttl_gdp_by_state = pd.Series(np.NaN)
 
     
-        # loop throught the homeownership series and set the state,year, homeownership rate values
-        
+        # loop throught the homeownership series and set the state,year, homeownership rate values        
         for items in homeownership.iteritems(): 
             
                 state_by_year_dict = {}

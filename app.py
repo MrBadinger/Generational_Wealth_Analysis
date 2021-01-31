@@ -1,8 +1,11 @@
 from flask import Flask, render_template, redirect, jsonify
-from flask_pymongo import PyMongo
 import data_import
 import pymongo
 import json
+
+################################################################################
+## state economic metrics flask app
+###############################################################################
 
 
 # Create an instance of Flask
@@ -22,6 +25,7 @@ wealth_data = data_import.load_state_metrics()
 # insert data into mongodb
 state_metrics.insert_many(wealth_data)
 
+# root route
 @app.route("/")
 def home():
     return (
@@ -30,7 +34,7 @@ def home():
             f"http://127.0.0.1:5000/api/v1.0/us-state-data"
         )
 
-
+# all us state data api route
 @app.route("/api/v1.0/us-state-data")
 def get_api():
     documents = state_metrics.find()
