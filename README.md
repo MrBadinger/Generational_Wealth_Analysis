@@ -2,5 +2,6 @@
 
 ## Team 5 - Project 2
 
-## Flask API with MongoDB Backend
-![alt text](documentation/api_homepage.png?raw=true)
+### Flask API with MongoDB Backend
+
+![alt text](documentation/api_homepage.png?raw=false)
