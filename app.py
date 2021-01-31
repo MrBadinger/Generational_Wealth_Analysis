@@ -48,6 +48,7 @@ def get_all_state_data():
     
     return jsonify(response)
 
+# all us state data by an individual state api route
 @app.route("/api/v1.0/state/<state>")
 def get_indiv_state_data(state):
     documents = state_metrics.find({"state": state})
@@ -58,8 +59,9 @@ def get_indiv_state_data(state):
     
     return jsonify(response)
 
+# all us state data by specific year
 @app.route("/api/v1.0/year/<year>")
-def get_annual_data(year):
+def get_annual_state_data(year):
     documents = state_metrics.find({"year": year})
     response = []
     for document in documents:
@@ -67,6 +69,37 @@ def get_annual_data(year):
         response.append(document)
     
     return jsonify(response)
+
+# all us state data by specific state and year
+@app.route("/api/v1.0/state-year/<state>/<year>")
+def get_state_data_by_year(state,year):
+    documents = state_metrics.find({"state": state, "year": year})
+    response = []
+    for document in documents:
+        document['_id'] = str(document['_id'])
+        response.append(document)
+    
+    return jsonify(response)
    
+@app.route("/api/v1.0/year-range/<start_year>/<end_year>")
+def get_annual_data_by_range(start_year,end_year):
+    documents = state_metrics.find({"year":{"$gte": start_year, "$lte": end_year}})
+    response = []
+    for document in documents:
+        document['_id'] = str(document['_id'])
+        response.append(document)
+    
+    return jsonify(response)
+
+@app.route("/api/v1.0/state-year-range/<state>/<start_year>/<end_year>")
+def get_annual_data_by_range_state(state,start_year,end_year):
+    documents = state_metrics.find({"state": state,"year":{"$gte": start_year, "$lte": end_year}})
+    response = []
+    for document in documents:
+        document['_id'] = str(document['_id'])
+        response.append(document)
+    
+    return jsonify(response)
+
 if __name__ == "__main__":
     app.run(debug=True)
