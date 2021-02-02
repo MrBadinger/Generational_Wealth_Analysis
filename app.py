@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, jsonify
+from flask_cors import CORS
 import data_import
 import pymongo
 import json
@@ -10,6 +11,7 @@ import json
 
 # Create an instance of Flask
 app = Flask(__name__)
+CORS(app)
 
 # setup mongo connection
 conn = "mongodb://localhost:27017"
