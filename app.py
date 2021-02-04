@@ -101,5 +101,15 @@ def get_state_year_range(state,start_year,end_year):
     
     return jsonify(response)
 
+# distinct state
+@app.route("/api/v1.0/distinct_state")
+def get_distinct_state():
+    documents = state_metrics.distinct("state")
+    response = []
+    for document in documents:
+        response.append(document)
+    
+    return jsonify(response)
+
 if __name__ == "__main__":
     app.run(debug=True)
