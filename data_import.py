@@ -73,40 +73,40 @@ def load_state_metrics():
                 
                 state_by_year_dict['state'] = state
                 state_by_year_dict['year'] = year
-                state_by_year_dict['homeownership rate'] = items[1]        
+                state_by_year_dict['homeownership_rate'] = items[1]        
                 
                 # loop thru bachelor_degree and set the bachelor degree pcnt value              
                 for items in bachelor_degree.iteritems():  
                     if items[0] == state:
-                        state_by_year_dict['bachelor degree pcnt'] = items[1]
+                        state_by_year_dict['bachelor_degree_pcnt'] = items[1]
                     else:
                         continue
                     
                 # loop thru hs_grad and set the high school grad pcnt value
                 for items in hs_grad.iteritems():  
                     if items[0] == state:
-                        state_by_year_dict['high school grad pcnt'] = items[1]
+                        state_by_year_dict['high_school_grad_pcnt'] = items[1]
                     else:
                         continue
                         
                 # loop through median_hh_income and set the median hh income value
                 for items in median_hh_income.iteritems():  
                     if items[0] == state:
-                        state_by_year_dict['median hh income'] = items[1]
+                        state_by_year_dict['median_hh_income'] = items[1]
                     else:
                         continue
                             
                 # loop through per_capita_income and set the per captia personal income value
                 for items in per_capita_income.iteritems():  
                     if items[0] == state:
-                        state_by_year_dict['per captia personal income'] = items[1]
+                        state_by_year_dict['per_captia_personal_income'] = items[1]
                     else:
                         continue
                             
                 # loop through ttl_gdp_by_state and set the ttl gdp by state value
                 for items in ttl_gdp_by_state.iteritems():  
                     if items[0] == state:
-                        state_by_year_dict['ttl gdp by state'] = items[1]
+                        state_by_year_dict['ttl_gdp_by_state'] = items[1]
                     else:
                         continue
 
