@@ -1,4 +1,4 @@
-var url = "http://127.0.0.1:5000/api/v1.0/us-state-data";
+var data_url = "http://127.0.0.1:5000/api/v1.0/us-state-data";
 var drop_url = "http://127.0.0.1:5000/api/v1.0/distinct_state"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -21,14 +21,10 @@ function init() {
           }
 
         plotCharts(state[1]);
-    });
-
-   
+    });   
 }
-
   
 init();
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // function for change event handling
@@ -39,15 +35,12 @@ function optionChanged(stateName) {
     plotCharts(stateName);
 }
 
-
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // line chart
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 function plotCharts(stateName) {
-    d3.json(url).then(function(importedData) {
+    d3.json(data_url).then(function(importedData) {
 
 
     var filteredSample = importedData.filter(filtersample => filtersample .state === stateName);
@@ -78,8 +71,6 @@ function plotCharts(stateName) {
         name: "High School %",
         type: "line",
     };
-
-
 
     // data
     var chartData = [trace1,trace2,trace3];
