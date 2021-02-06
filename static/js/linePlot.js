@@ -20,7 +20,7 @@ function init() {
             dropdown.append("option").text(state[i]).property("value");
           }
 
-        plotLine(state[1]);
+        plotLine(state[0]);
     });   
 }
   
