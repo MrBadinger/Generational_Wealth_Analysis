@@ -1,5 +1,5 @@
-var url = "http://127.0.0.1:5000/api/v1.0/us-state-data";
-var drop_url = "http://127.0.0.1:5000/api/v1.0/distinct_state"
+var data_url = "http://127.0.0.1:5000/api/v1.0/us-state-data";
+var drop_state_url = "http://127.0.0.1:5000/api/v1.0/distinct_state"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // function to Initializes the page
@@ -11,7 +11,7 @@ function init() {
     var dropdown = d3.select("#selDataset");
 
      // Use D3 fetch to read the JSON file
-    d3.json(drop_url).then((data)=> {
+    d3.json(drop_state_url ).then((data)=> {
        // console.log(data)
         state = data
 
@@ -20,15 +20,11 @@ function init() {
             dropdown.append("option").text(state[i]).property("value");
           }
 
-        plotCharts(state[1]);
-    });
-
-   
+        plotLine(state[1]);
+    });   
 }
-
   
 init();
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // function for change event handling
@@ -36,21 +32,18 @@ init();
 
 function optionChanged(stateName) {
 
-    plotCharts(stateName);
+    plotLine(stateName);
 }
-
-
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // line chart
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-function plotCharts(stateName) {
-    d3.json(url).then(function(importedData) {
+function plotLine(stateName) {
+    d3.json(data_url).then(function(importedData) {
 
 
-    var filteredSample = importedData.filter(filtersample => filtersample .state === stateName);
+    var filteredSample = importedData.filter(filtersample => filtersample.state === stateName);
 
     console.log(filteredSample)
 
@@ -79,8 +72,6 @@ function plotCharts(stateName) {
         type: "line",
     };
 
-
-
     // data
     var chartData = [trace1,trace2,trace3];
 
@@ -96,7 +87,8 @@ function plotCharts(stateName) {
     };
 
     // Render the plot to the div tag with id "plot"
-    Plotly.newPlot("drewplot", chartData, layout);
+    Plotly.newPlot("lineplot", chartData, layout);
      });
 
 }
+

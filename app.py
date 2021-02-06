@@ -111,5 +111,15 @@ def get_distinct_state():
     
     return jsonify(response)
 
+# distinct year
+@app.route("/api/v1.0/distinct_year")
+def get_distinct_year():
+    documents = state_metrics.distinct("year")
+    response = []
+    for document in documents:
+        response.append(document)
+    
+    return jsonify(response)
+
 if __name__ == "__main__":
     app.run(debug=True)
