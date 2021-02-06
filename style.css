@@ -1,0 +1,98 @@
+
+body {
+  font-family: 'Times New Roman', Times, serif; 
+  font-size: 15px;
+  background-color:#F5F5F5;
+}
+
+h1 {
+    color: black;;
+    font-size: 36px;
+    margin: 0;
+    vertical-align: baseline;
+    padding-top:5px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    border: 0;
+    margin-left: 10px;
+  }
+
+  #yearwell {
+    position: relative;
+    left: 54px;
+  }
+  
+ 
+    /* Navbar */
+.navbar {
+  width: 100%;
+  padding: 0;
+}
+  
+.navbar-brand {
+  font-size: 32px;
+  font-weight: bolder;
+  padding: 5px;
+  margin-left: 3%;
+}
+  
+.navbar-collapse {
+  position: absolute;
+  right: 5%;
+  font-size: small;
+}
+  
+.nav-item {
+  font-weight: bold;
+}
+
+.navbar-light .navbar-brand {
+  color:#f39800;;
+  ;
+}
+
+#myTopnav {
+  visibility: hidden;
+  display: none;
+}
+
+.text-center {
+  background-color: #F5F5F5;
+}
+
+#pairplot {
+  display: flex;
+  justify-content: center;
+}
+
+/* Media */
+@media (max-width: 720px) {
+
+.navbar-expand-lg{
+      background-color: #00008b !important;
+}
+
+.navbar-collapse{
+  background-color: white;
+}
+.navbar{
+  max-height: none;
+  padding:inherit;
+}
+
+.navbar div{
+  margin: inherit; 
+  background-color: white;  
+}
+.navbar-brand{
+  padding: 10px !important; 
+}
+
+#myTopnav{
+  visibility:visible;
+  display: inline;
+}
+
+
+}
+

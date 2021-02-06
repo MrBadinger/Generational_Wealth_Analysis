@@ -46,41 +46,26 @@
     </div>
 
     <div class="row">
+      <div class="col-md-3">
+        <div class="well" id="yearwell">
+          <h5>Year:</h5>
+          <select id="selDataset" onchange="yearChanged(this.value)"></select>
+        </div>
+      </div>
+    </div></br>
+    <div class="row">
       <div class="col-md-12">
-        <div id="boxDollars"></div>
+        <div id="pairplot"></div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="boxGDP"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="map_ed"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="bubble_ed"></div>
-      </div>
-    </div>   
-    <div class="row">
-      <div class="col-md-12">
-        <div id="chart_one"></div>
-      </div>
-    </div> 
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </br>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="./static/js/boxPlot.js"></script>
-  <script src="./static/js/map_ed.js"></script>
-  <script src="./static/js/michael_app.js"></script>
+  <script src="./static/js/dog_app.js"></script>
   
 </body>
 
