@@ -105,9 +105,11 @@ function buildPlot(yearSel) {
     var layout = {
       title: "HS Diploma and Bachelor's Degree Rate by State",
       barmode: 'relative',
+      paper_bgcolor: '#F5F5F5',
+      plot_bgcolor: '#F5F5F5',
     };
 
-    Plotly.newPlot('map_ed', data, layout);
+    Plotly.newPlot('bar_ed', data, layout);
 
 
     //=======================================
@@ -120,13 +122,15 @@ function buildPlot(yearSel) {
       mode: 'markers',
       marker: {
         size: filteredSample.map(row => row.homeownership_rate),
+        color: filteredSample.map(row => row.per_captia_personal_income),
+        showscale: true,
       }
     };
 
     var bubbleData = [trace4];
 
     var layout = {
-      title: "Edcuational attainment by state (bubble size is homeownership %)",
+      title: "Edcuational attainment by state (bubble size is homeownership %, color is per capita personal income)",
       xaxis: {
         title: '% of population with a high school diploma',
       },
@@ -136,6 +140,8 @@ function buildPlot(yearSel) {
       showlegend: false,
       height: 600,
       // width: 800
+      paper_bgcolor: '#F5F5F5',
+      plot_bgcolor: '#F5F5F5',
     };
 
     Plotly.newPlot('bubble_ed', bubbleData, layout);
@@ -252,6 +258,8 @@ Plotly.d3.json(allYrsUrl, function (err, data) {
       // type: 'log'
     },
     height: 600,
+    paper_bgcolor: '#F5F5F5',
+    plot_bgcolor: '#F5F5F5',
     hovermode: 'closest',
 	 //Set up the play and pause buttons for the animation
     updatemenus: [{
