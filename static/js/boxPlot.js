@@ -2,7 +2,7 @@ var data_url = "http://127.0.0.1:5000/api/v1.0/us-state-data";
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
-// boxplot chart
+// Median HH Income/Personal Income boxplot chart
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -37,7 +37,9 @@ d3.json(data_url).then(function(importedData) {
         title: 'Dollars',
         zeroline: false
     },
-    boxmode: 'group'
+    boxmode: 'group',
+    paper_bgcolor: '#F5F5F5',
+    plot_bgcolor: '#F5F5F5'
     };
 
     Plotly.newPlot('boxDollars',data, layout);
@@ -45,7 +47,7 @@ d3.json(data_url).then(function(importedData) {
 })
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
-// boxplot chart
+// Total GDP boxplot chart
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -53,7 +55,6 @@ d3.json(data_url).then(function(importedData) {
 
 
     var x = importedData.map(row => row.year);
-
     
     var trace1 = {
         y: importedData.map(row => row.ttl_gdp_by_state),
@@ -71,10 +72,49 @@ d3.json(data_url).then(function(importedData) {
         title: 'Total GDP (Millions)',
         zeroline: false
     },
-    boxmode: 'group'
+    boxmode: 'group',
+    paper_bgcolor: '#F5F5F5',
+    plot_bgcolor: '#F5F5F5'
     };
 
     Plotly.newPlot('boxGDP',data, layout);
+
+})
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Total GDP boxplot chart
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+d3.json(data_url).then(function(importedData) {
+
+
+    var x = importedData.map(row => row.year);
+
+    
+    var trace1 = {
+        y: importedData.map(row => row.homeownership_rate),
+        x: x,
+        name: 'Homeownership Rate',
+        marker: {color: '#95d8EB'},
+        type: 'box'
+    };
+    
+
+    var data = [trace1];
+
+    var layout = {
+    yaxis: {
+        title: 'Homeownership Rate',
+        zeroline: false,
+    },
+    boxmode: 'group',
+    paper_bgcolor: '#F5F5F5',
+    plot_bgcolor: '#F5F5F5'
+    };
+
+    Plotly.newPlot('boxHome',data, layout);
 
 })
 

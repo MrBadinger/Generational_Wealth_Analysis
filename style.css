@@ -60,7 +60,29 @@ h1 {
   background-color: #F5F5F5;
 }
 
+/* plots */
+
 #pairplot {
+  display: flex;
+  justify-content: center;
+}
+
+#lineplot {
+  display: flex;
+  justify-content: center;
+}
+
+#chart_one {
+  display: flex;
+  justify-content: center;
+}
+
+#bubble_ed {
+  display: flex;
+  justify-content: center;
+}
+
+#map_ed {
   display: flex;
   justify-content: center;
 }
