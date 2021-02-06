@@ -1,5 +1,5 @@
 var data_url = "http://127.0.0.1:5000/api/v1.0/us-state-data";
-var drop_url = "http://127.0.0.1:5000/api/v1.0/distinct_state"
+var drop_state_url = "http://127.0.0.1:5000/api/v1.0/distinct_state"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // function to Initializes the page
@@ -11,7 +11,7 @@ function init() {
     var dropdown = d3.select("#selDataset");
 
      // Use D3 fetch to read the JSON file
-    d3.json(drop_url).then((data)=> {
+    d3.json(drop_state_url ).then((data)=> {
        // console.log(data)
         state = data
 
@@ -43,7 +43,7 @@ function plotCharts(stateName) {
     d3.json(data_url).then(function(importedData) {
 
 
-    var filteredSample = importedData.filter(filtersample => filtersample .state === stateName);
+    var filteredSample = importedData.filter(filtersample => filtersample.state === stateName);
 
     console.log(filteredSample)
 
@@ -87,7 +87,7 @@ function plotCharts(stateName) {
     };
 
     // Render the plot to the div tag with id "plot"
-    Plotly.newPlot("drewplot", chartData, layout);
+    Plotly.newPlot("lineplot", chartData, layout);
      });
 
 }
