@@ -19,7 +19,8 @@ function init() {
             //console.log(state[i]);
             dropdown.append("option").text(state[i]).property("value");
           }
-
+        
+        // generate box plots using the first state in the dataset
         plotBarLine(state[0]);
         plotBarLine2(state[0]);
         plotBarLine3(state[0]);
@@ -40,14 +41,12 @@ function optionChanged(stateName) {
     
 }
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // bar line chart - State GDP vs. Home Ownership Percentage
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 function plotBarLine(stateName) {
 d3.json(data_url).then(function(importedData) {
-
 
     var data = importedData.filter(filtersample => filtersample.state === stateName);
 
