@@ -20,6 +20,7 @@ function init() {
             dropdown.append("option").text(state[i]).property("value");
           }
 
+        plotBarLine(state[0]);
         plotLine(state[0]);
     });   
 }
@@ -32,7 +33,9 @@ init();
 
 function optionChanged(stateName) {
 
+    plotBarLine(stateName);
     plotLine(stateName);
+    
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,8 +48,6 @@ function plotLine(stateName) {
 
     var filteredSample = importedData.filter(filtersample => filtersample.state === stateName);
 
-    console.log(filteredSample)
-
     // // Trace1 for the homeownership Data
     var trace1 = {
         x: filteredSample.map(row => row.year),
@@ -56,24 +57,8 @@ function plotLine(stateName) {
         type: "line",
     };
 
-    var trace2 = {
-        x: filteredSample.map(row => row.year),
-        y: filteredSample.map(row => row.bachelor_degree_pcnt),
-        //text: data.map(row => row.state),
-        name: "Bachelor Degree %",
-        type: "line",
-    };
-
-    var trace3 = {
-        x: filteredSample.map(row => row.year),
-        y: filteredSample.map(row => row.high_school_grad_pcnt),
-        //text: data.map(row => row.homeownership_rate),
-        name: "High School %",
-        type: "line",
-    };
-
     // data
-    var chartData = [trace1,trace2,trace3];
+    var chartData = [trace1];
 
     // Apply the group bar mode to the layout
     var layout = {
@@ -92,3 +77,70 @@ function plotLine(stateName) {
 
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// bar line chart
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+function plotBarLine(stateName) {
+d3.json(data_url).then(function(importedData) {
+
+
+    var data = importedData.filter(filtersample => filtersample.state === stateName);
+
+    var years = [];
+    var stateList = [];
+    var hsGradPcnts = [];
+    var collGradPcnts = [];
+    var homeOwnerPcnts = [];
+    var gdplist = [];
+    for (var i = 0; i < data.length; i++) {
+      var year = data[i].year
+      years.push(year);
+      var state = data[i].state
+      stateList.push(state)
+      var hsGrads = data[i].high_school_grad_pcnt
+      hsGradPcnts.push(hsGrads);
+      var collGrads = data[i].bachelor_degree_pcnt
+      collGradPcnts.push(collGrads);
+      var homeRate = data[i].homeownership_rate
+      homeOwnerPcnts.push(homeRate);
+      var gpd = data[i].ttl_gdp_by_state
+      gdplist.push(gpd);
+
+    };
+
+
+    // GDP & Ownership Rates over time - Line Graph
+    var trace1 = {
+        x: years,
+        y: gdplist,
+        name: 'State GDP $',
+        type: 'bar'
+    };
+
+    var trace2 = {
+        x: years,
+        y: homeOwnerPcnts,
+        name: 'Home Ownership %',
+        yaxis: 'y2',
+        mode: 'lines+markers',
+        type: 'scatter'
+
+    };
+
+    var layout = {
+        title: 'State GDP vs. Home Ownership Percentage',
+        yaxis: {title: 'State GDP ($ Millions)'},
+        yaxis2: {
+          title: 'Home Ownership (%)',
+          overlaying: 'y',
+          side: 'right',
+          showgrid: false,
+          showline: true
+        }
+      };
+
+    var array_scat = [trace1, trace2]
+    Plotly.newPlot("chart_one", array_scat, layout);
+})
+}
