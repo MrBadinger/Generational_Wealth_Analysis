@@ -19,7 +19,7 @@ function init() {
           dropdown.append("option").text(year[i]).property("value");
         }
 
-      plotPairs(year[1]);
+      plotPairs(year[0]);
   });   
 }
 
@@ -100,7 +100,7 @@ function plotPairs(year) {
     
 
     var layout = {
-      title: '<b>Scatterplot Matrix for Homeownership Study',
+      title: '<b>Scatterplot Matrix for Home Ownership Study',
       height: 850,
       width: 1000,
       autosize: false,
