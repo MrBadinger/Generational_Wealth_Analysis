@@ -5,15 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Homeownership Impact Analysis</title>
+  <title>Homeownership Impact Project</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">Homeownership Impact Analysis</a>   
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="index.html">Homeownership Impact Project</a>   
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>   
@@ -25,10 +25,10 @@
             Links
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="index.html">Pair Plots</a>
-            <a class="dropdown-item" href="education.html">Education</a>
-            <a class="dropdown-item" href="lineplot.html">Line Plot</a>
-            <a class="dropdown-item" href="boxplots.html">Box Plots</a>
+            <a class="dropdown-item" href="index.html">Pair Plots Analysis</a>
+            <a class="dropdown-item" href="education.html">Education Analysis</a>
+            <a class="dropdown-item" href="lineplot.html">State Analysis</a>
+            <a class="dropdown-item" href="boxplots.html">Box Plot Analysis</a>
           </div>
         </li>
       </ul>
@@ -38,16 +38,16 @@
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
         <h1>Pair Plot Analysis</h1>
-        <p>The pair plots graph visualizes by year (drop down) and state relationships between each key performance indicator: percent with college graduates (Bachelor’s Degree), percent high school graduates (High School Degree), home ownership rate (Ownership Rate), median household income (Household Income), per-capita personal income (Personal Income), and total state gross domestic product (State GDP).  
+        <p class="tab">The pair plots graph visualizes by year (drop down) and state relationships between each key performance indicator: percent with college graduates (Bachelor’s Degree), percent high school graduates (High School Degree), home ownership rate (Ownership Rate), median household income (Household Income), per-capita personal income (Personal Income), and total state gross domestic product (State GDP).  
           High school and college graduates have a higher median income and per-capita personal income.  Surprisingly, home ownership rates have a negative correlation with per capita personal income and percent residents earning undergraduate degrees.  Higher home ownership rates concentrate around States with lower GDP.  
-        </p><br><p>The data suggests that poorer states with less educated residents have higher home ownership.
+        </p><br><p class="tab">The data suggests that poorer states with less educated residents have higher home ownership.
           </p>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-3">
-        <div class="well" id="yearwell">
+        <div class="well">
           <h5>Year:</h5>
           <select id="selDataset" onchange="yearChanged(this.value)"></select>
         </div>
