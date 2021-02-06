@@ -38,44 +38,6 @@ function optionChanged(stateName) {
     
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
-// line chart
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-function plotLine(stateName) {
-    d3.json(data_url).then(function(importedData) {
-
-
-    var filteredSample = importedData.filter(filtersample => filtersample.state === stateName);
-
-    // // Trace1 for the homeownership Data
-    var trace1 = {
-        x: filteredSample.map(row => row.year),
-        y: filteredSample.map(row => row.homeownership_rate),
-        text: filteredSample.map(row => row.state),
-        name: "Home Ownership Rate",
-        type: "line",
-    };
-
-    // data
-    var chartData = [trace1];
-
-    // Apply the group bar mode to the layout
-    var layout = {
-        title: "Homeownership over time",
-        margin: {
-        l: 100,
-        r: 100,
-        t: 100,
-        b: 100
-        }
-    };
-
-    // Render the plot to the div tag with id "plot"
-    Plotly.newPlot("lineplot", chartData, layout);
-     });
-
-}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // bar line chart
