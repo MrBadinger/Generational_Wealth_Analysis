@@ -13,7 +13,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">Team Five</a>   
+    <a class="navbar-brand" href="index.html">Generational Wealth Analysis</a>   
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>   
@@ -38,22 +38,73 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
-        <h1>Generational Wealth Analysis</h1>
-        <p>Uipsum lorem massa vel felis bibendum rutrum. Curabitur sed felis quis magna maximus feugiat. 
-          Fusce accumsan accumsan sem a egestas. Duis id finibus tortor. Fusce commodo, felis et venenatis 
-          consequat, magna lectus gravida diam, vitae vehicula tellus lacus at nulla. Curabitur gravida 
-          ultrices leo, in aliquam eros condimentum non. </p>
+        <h1>Educational attainment, income, and homeownership</h1>
+        <p>The figures below show the relationship between educational attainment (percent of population
+           in each state with a high school diploma and bachelor's degree), home ownership rate, and per capita 
+           personal income. Choose a year from the dropdown to begin.
+        </p>
       </div>
     </div>
 
     <div class="row">
+      <div class="col-md-2">
+        <div class="well">
+          <h5>Year:</h5>
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-12">
-        <div id="map_ed"></div>
+        <div id="bar_ed"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          <br><br>
+          <p>The bar height represents total educational attainment for each state (HS diploma plus 
+            bachelor's degree rates) and the blue line represents the homeownership rate. 
+          </p>
+          <br>
+          <p>We found that in many cases where educational attainment is high homeownership is low 
+            and vice versa. This could be due to urban vs. rural populations and housing availability 
+            (WV vs. DC)
+          </p>
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div id="bubble_ed"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          <br><br>
+          <p>This chart gives us another view of the data. Bubbles farther to the upper right represent 
+            higher educational attainment. Bubble size comes from homeownership rate, and color comes from 
+            per capita personal income (scale at right). 
+          </p>
+          <br>
+          <p>As expected higher educational attainment correlates with higher per capita personal income, 
+            but does not correlate with homeownership.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble_anim"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          <br><br>
+          <p>Press play to see how educational attainment has improved over the time period we evaluated.
+          </p>
       </div>
     </div>   
 
