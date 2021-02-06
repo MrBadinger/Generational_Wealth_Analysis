@@ -19,7 +19,7 @@ function init() {
           dropdown.append("option").text(year[i]).property("value");
         }
 
-      plotPairs(year[1]);
+      plotPairs(year[0]);
   });   
 }
 
