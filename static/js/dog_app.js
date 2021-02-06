@@ -100,7 +100,7 @@ function plotPairs(year) {
     
 
     var layout = {
-      title: '<b>Scatterplot Matrix for Homeownership Study',
+      title: '<b>Scatterplot Matrix for Home Ownership Study',
       height: 850,
       width: 1000,
       autosize: false,
