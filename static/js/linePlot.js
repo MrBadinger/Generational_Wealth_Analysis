@@ -20,6 +20,7 @@ function init() {
             dropdown.append("option").text(state[i]).property("value");
           }
 
+        plotBarLine(state[0]);
         plotLine(state[0]);
     });   
 }
@@ -32,7 +33,9 @@ init();
 
 function optionChanged(stateName) {
 
+    plotBarLine(stateName);
     plotLine(stateName);
+    
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,8 +48,6 @@ function plotLine(stateName) {
 
     var filteredSample = importedData.filter(filtersample => filtersample.state === stateName);
 
-    console.log(filteredSample)
-
     // // Trace1 for the homeownership Data
     var trace1 = {
         x: filteredSample.map(row => row.year),
@@ -56,24 +57,8 @@ function plotLine(stateName) {
         type: "line",
     };
 
-    var trace2 = {
-        x: filteredSample.map(row => row.year),
-        y: filteredSample.map(row => row.bachelor_degree_pcnt),
-        //text: data.map(row => row.state),
-        name: "Bachelor Degree %",
-        type: "line",
-    };
-
-    var trace3 = {
-        x: filteredSample.map(row => row.year),
-        y: filteredSample.map(row => row.high_school_grad_pcnt),
-        //text: data.map(row => row.homeownership_rate),
-        name: "High School %",
-        type: "line",
-    };
-
     // data
-    var chartData = [trace1,trace2,trace3];
+    var chartData = [trace1];
 
     // Apply the group bar mode to the layout
     var layout = {
@@ -93,11 +78,15 @@ function plotLine(stateName) {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
-// line and bar chart
+// bar line chart
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-d3.json(url).then(function(data) {
-    console.log(data)
+function plotBarLine(stateName) {
+d3.json(data_url).then(function(importedData) {
+
+
+    var data = importedData.filter(filtersample => filtersample.state === stateName);
+
     var years = [];
     var stateList = [];
     var hsGradPcnts = [];
@@ -154,3 +143,4 @@ d3.json(url).then(function(data) {
     var array_scat = [trace1, trace2]
     Plotly.newPlot("chart_one", array_scat, layout);
 })
+}
