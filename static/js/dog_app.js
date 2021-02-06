@@ -89,7 +89,7 @@ function plotPairs(year) {
       ],
       text: state_list,
       marker: {
-        color: "blue",
+        color: "#4db4d7",
         size: 7,
         line: {
           color: 'white',

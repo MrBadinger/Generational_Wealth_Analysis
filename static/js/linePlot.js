@@ -20,7 +20,7 @@ function init() {
             dropdown.append("option").text(state[i]).property("value");
           }
 
-        plotCharts(state[1]);
+        plotLine(state[1]);
     });   
 }
   
@@ -32,14 +32,14 @@ init();
 
 function optionChanged(stateName) {
 
-    plotCharts(stateName);
+    plotLine(stateName);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // line chart
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-function plotCharts(stateName) {
+function plotLine(stateName) {
     d3.json(data_url).then(function(importedData) {
 
 
@@ -91,3 +91,4 @@ function plotCharts(stateName) {
      });
 
 }
+
