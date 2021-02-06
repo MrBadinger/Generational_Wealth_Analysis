@@ -44,12 +44,14 @@ d3.json(url).then(function(data) {
     };
 
     var layout = {
-        title: 'Double Y Axis Example',
-        yaxis: {title: 'yaxis title'},
+        title: 'State GDP vs. Home Ownership Percentage',
+        yaxis: {title: 'State GDP ($ Millions)'},
         yaxis2: {
-          title: 'yaxis2 title',
+          title: 'Home Ownership (%)',
           overlaying: 'y',
-          side: 'left'
+          side: 'right',
+          showgrid: false,
+          showline: true
         }
       };
 
