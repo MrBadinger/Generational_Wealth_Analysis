@@ -80,11 +80,11 @@ function plotPairs(year) {
     var data = [{
       type: 'splom',
       dimensions: [
-        {label: 'BS Degree', values: bs_degrees},
-        {label: 'HS Degree', values: hs_degrees},
-        {label: 'Ownership Rate', values: ownership_rts},
-        {label: 'Household Income', values: med_hh_incomes},
-        {label: 'Personal Income', values: personal_incomes},
+        {label: 'Bachelor<br>Degree', values: bs_degrees},
+        {label: 'High School<br>Degree', values: hs_degrees},
+        {label: '<b>Ownership<br> Rate', values: ownership_rts},
+        {label: 'Household<br>Income', values: med_hh_incomes},
+        {label: 'Personal<br>Income', values: personal_incomes},
         {label: 'State GDP', values: gdp_states}
       ],
       text: state_list,
@@ -100,8 +100,8 @@ function plotPairs(year) {
     
 
     var layout = {
-      title: 'Scatterplot Matrix for Homeownership Study',
-      height: 1000,
+      title: '<b>Scatterplot Matrix for Homeownership Study',
+      height: 850,
       width: 1000,
       autosize: false,
       hovermode: 'closest',
