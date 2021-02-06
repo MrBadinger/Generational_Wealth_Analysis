@@ -91,6 +91,8 @@ d3.json(data_url).then(function(importedData) {
     };
 
     var layout = {
+        paper_bgcolor: '#F5F5F5',
+        plot_bgcolor: '#F5F5F5',
         title: 'State GDP vs. Home Ownership Percentage',
         yaxis: {title: 'State GDP ($ Millions)'},
         yaxis2: {
