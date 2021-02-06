@@ -2,12 +2,12 @@
 body {
   font-family: 'Times New Roman', Times, serif; 
   font-size: 15px;
-  background-color:#63CEF2;
+  background-color:#F5F5F5;
 }
 
 h1 {
-    color: #f39800;;
-    font-size: 30px;
+    color: black;;
+    font-size: 36px;
     margin: 0;
     vertical-align: baseline;
     padding-top:5px;
@@ -51,7 +51,7 @@ h1 {
 }
 
 .text-center {
-  background-color: white;
+  background-color: #F5F5F5;
 }
 
 #pairplot {
