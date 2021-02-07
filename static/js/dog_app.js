@@ -71,7 +71,7 @@ function plotPairs(year) {
     console.log(med_hh_incomes)
 
     var axis =() => ({
-      showline: false,
+      showline: true,
       zeroline: false,
       gridcolor:'#ffff',
       ticklen:6
