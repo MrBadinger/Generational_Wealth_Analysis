@@ -78,7 +78,8 @@ d3.json(data_url).then(function(importedData) {
         x: years,
         y: gdplist,
         name: 'State GDP $',
-        type: 'bar'
+        type: 'bar',
+        marker: {color: "#95d8EB"}
     };
 
     var trace2 = {
@@ -87,7 +88,8 @@ d3.json(data_url).then(function(importedData) {
         name: 'Home Ownership %',
         yaxis: 'y2',
         mode: 'lines+markers',
-        type: 'scatter'
+        type: 'scatter',
+        marker: {color: '#f39800'}
 
     };
 
@@ -153,7 +155,8 @@ d3.json(data_url).then(function(importedData) {
         x: years,
         y: med_income_list,
         name: 'State Median Household Income $',
-        type: 'bar'
+        type: 'bar',
+        marker: {color: "#95d8EB"}
     };
 
     var trace2 = {
@@ -162,7 +165,8 @@ d3.json(data_url).then(function(importedData) {
         name: 'Home Ownership %',
         yaxis: 'y2',
         mode: 'lines+markers',
-        type: 'scatter'
+        type: 'scatter',
+        marker: {color: '#f39800'}
 
     };
 
@@ -224,7 +228,9 @@ function plotBarLine3(stateName) {
             x: years,
             y: percapinclist,
             name: 'Per Capitia Income ($)',
-            type: 'bar'
+            type: 'bar',
+            marker: {color:'#95d8EB'}
+            
         };
     
         var trace2 = {
@@ -233,7 +239,8 @@ function plotBarLine3(stateName) {
             name: 'Home Ownership %',
             yaxis: 'y2',
             mode: 'lines+markers',
-            type: 'scatter'
+            type: 'scatter',
+            marker: {color:'#f39800'}
     
         };
     
