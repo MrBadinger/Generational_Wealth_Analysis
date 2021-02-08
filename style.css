@@ -1,6 +1,6 @@
 
 body {
-  font-family: 'Times New Roman', Times, serif; 
+  font-family: 'Arial', Times, serif; 
   font-size: 15px;
   background-color:#F5F5F5;
 }
@@ -17,23 +17,36 @@ h1 {
     margin-left: 10px;
   }
 
-  #yearwell {
+  .well {
     position: relative;
     left: 54px;
   }
   
  
     /* Navbar */
+
 .navbar {
   width: 100%;
   padding: 0;
-}
   
+}
+
+.navbar-custom { 
+  background-color: #f39800; 
+  color: #F5F5F5;
+} 
+ 
+
+.navbar-custom .navbar-brand{ 
+  background-color: #f39800; 
+  color: #F5F5F5;
+} 
+ 
 .navbar-brand {
   font-size: 32px;
   font-weight: bolder;
   padding: 5px;
-  margin-left: 3%;
+  margin-left: 3%;   
 }
   
 .navbar-collapse {
@@ -46,18 +59,26 @@ h1 {
   font-weight: bold;
 }
 
-.navbar-light .navbar-brand {
-  color:#f39800;;
-  ;
+.nav-link {
+  color: #F5F5F5;
 }
 
-#myTopnav {
-  visibility: hidden;
-  display: none;
-}
 
 .text-center {
   background-color: #F5F5F5;
+  font-size: larger;
+}
+
+p {
+  text-align: left;
+  text-indent: 30px;
+  font-size: large;
+}
+
+.tab { 
+  margin-left: 40px; 
+  line-height: 125%;  
+  font-size: large;
 }
 
 /* plots */
@@ -88,35 +109,4 @@ h1 {
 }
 
 
-
-/* Media */
-@media (max-width: 720px) {
-
-.navbar-expand-lg{
-      background-color: #00008b !important;
-}
-
-.navbar-collapse{
-  background-color: white;
-}
-.navbar{
-  max-height: none;
-  padding:inherit;
-}
-
-.navbar div{
-  margin: inherit; 
-  background-color: white;  
-}
-.navbar-brand{
-  padding: 10px !important; 
-}
-
-#myTopnav{
-  visibility:visible;
-  display: inline;
-}
-
-
-}
 
