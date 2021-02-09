@@ -123,6 +123,8 @@ function buildPlot(yearSel) {
       marker: {
         size: filteredSample.map(row => row.homeownership_rate),
         color: filteredSample.map(row => row.per_captia_personal_income),
+        colorscale: 'YlGnBu',
+        reversescale: true,
         showscale: true,
       }
     };
@@ -130,7 +132,7 @@ function buildPlot(yearSel) {
     var bubbleData = [trace4];
 
     var layout = {
-      title: "Edcuational attainment by state (bubble size is homeownership %, color is per capita personal income)",
+      title: "Educational attainment by state (bubble size is homeownership %, color is per capita personal income)",
       xaxis: {
         title: '% of population with a high school diploma',
       },
@@ -145,6 +147,119 @@ function buildPlot(yearSel) {
     };
 
     Plotly.newPlot('bubble_ed', bubbleData, layout);
+
+    //=======================================
+    //Homeownership choropleth map
+    var stateAbbrs = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
+
+    var home_data = [{
+      type: 'choropleth',
+      locationmode: 'USA-states',
+      locations: stateAbbrs,
+      z: filteredSample.map(row => row.homeownership_rate),
+      text: filteredSample.map(row => row.state),
+      colorscale: 'YlGnBu',
+      reversescale: true,
+      // autocolorscale: true
+    }];
+
+    console.log(home_data);
+
+    var home_layout = {
+      title: 'Homeownership Rate by State',
+      paper_bgcolor: '#F5F5F5',
+      plot_bgcolor: '#F5F5F5',
+      geo:{
+            scope: 'usa',
+            countrycolor: 'rgb(255, 255, 255)',
+            showland: true,
+            landcolor: 'rgb(217, 217, 217)',
+            showlakes: true,
+            lakecolor: 'rgb(255, 255, 255)',
+            subunitcolor: 'rgb(255, 255, 255)',
+            lonaxis: {},
+            lataxis: {},
+            bgcolor: '#F5F5F5',
+            paper_bgcolor: '#F5F5F5',
+            plot_bgcolor: '#F5F5F5',
+          }
+    };
+      
+    Plotly.newPlot("homeMap", home_data, home_layout, {showLink: false});
+
+    //=======================================
+    //Educational attainment choropleth map
+    var edu_data = [{
+      type: 'choropleth',
+      locationmode: 'USA-states',
+      locations: stateAbbrs,
+      z: filteredSample.map(row => (row.bachelor_degree_pcnt+row.high_school_grad_pcnt)),
+      text: filteredSample.map(row => row.state),
+      colorscale: 'YlGnBu',
+      reversescale: true,
+      // autocolorscale: true
+    }];
+
+    console.log(edu_data);
+
+    var edu_layout = {
+      title: "Educational Attainment by State",
+      paper_bgcolor: '#F5F5F5',
+      plot_bgcolor: '#F5F5F5',
+      geo:{
+            scope: 'usa',
+            countrycolor: 'rgb(255, 255, 255)',
+            showland: true,
+            landcolor: 'rgb(217, 217, 217)',
+            showlakes: true,
+            lakecolor: 'rgb(255, 255, 255)',
+            subunitcolor: 'rgb(255, 255, 255)',
+            lonaxis: {},
+            lataxis: {},
+            bgcolor: '#F5F5F5',
+            paper_bgcolor: '#F5F5F5',
+            plot_bgcolor: '#F5F5F5',
+        }
+    };
+      
+    Plotly.newPlot("eduMap", edu_data, edu_layout, {showLink: false});
+
+    //=======================================
+    //Median HH Income choropleth map
+    var hhInc_data = [{
+      type: 'choropleth',
+      locationmode: 'USA-states',
+      locations: stateAbbrs,
+      z: filteredSample.map(row => row.median_hh_income),
+      text: filteredSample.map(row => row.state),
+      colorscale: 'YlGnBu',
+      reversescale: true,
+      // autocolorscale: true
+    }];
+
+    console.log(hhInc_data);
+
+    var hhInc_layout = {
+      title: "Median HH Income by State",
+      paper_bgcolor: '#F5F5F5',
+      plot_bgcolor: '#F5F5F5',
+      geo:{
+            scope: 'usa',
+            countrycolor: 'rgb(255, 255, 255)',
+            showland: true,
+            landcolor: 'rgb(217, 217, 217)',
+            showlakes: true,
+            lakecolor: 'rgb(255, 255, 255)',
+            subunitcolor: 'rgb(255, 255, 255)',
+            lonaxis: {},
+            lataxis: {},
+            bgcolor: '#F5F5F5',
+            paper_bgcolor: '#F5F5F5',
+            plot_bgcolor: '#F5F5F5',
+        }
+    };
+      
+    Plotly.newPlot("hhIncMap", hhInc_data, hhInc_layout, {showLink: false});
 
   });
 };
@@ -187,7 +302,7 @@ Plotly.d3.json(allYrsUrl, function (err, data) {
     trace.id.push(datum.state);
     trace.x.push(datum.high_school_grad_pcnt);
     trace.y.push(datum.bachelor_degree_pcnt);
-    trace.marker.size.push(Math.pow(datum.homeownership_rate, 1.5));
+    trace.marker.size.push(Math.pow(datum.homeownership_rate, 1.3));
     // trace.marker.size.push(datum.per_captia_personal_income/100);
   }
 
@@ -310,3 +425,4 @@ Plotly.d3.json(allYrsUrl, function (err, data) {
     frames: frames,
   });
 });
+

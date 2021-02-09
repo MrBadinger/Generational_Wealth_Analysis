@@ -23,7 +23,10 @@ d3.json(data_url).then(function(importedData) {
         y: importedData.map(row => row.per_captia_personal_income),
         x: x,
         name: 'Per Capita Personal Income',
-        marker: {color: '#95d8EB'},
+        marker: {
+            color: '#95d8EB',
+            outliercolor: '#F5F5F5'
+        },
         type: 'box'
         };
     
@@ -65,8 +68,12 @@ d3.json(data_url).then(function(importedData) {
         y: importedData.map(row => row.ttl_gdp_by_state),
         x: x,
         name: 'Total GDP',
-        marker: {color: '#f39800'},
+        marker: {
+            color: '#f39800',
+            outliercolor: '#F5F5F5'
+        },
         type: 'box'
+        
     };
     
     // create a data object including all traces we will pass to newplot()
@@ -107,8 +114,12 @@ d3.json(data_url).then(function(importedData) {
         y: importedData.map(row => row.homeownership_rate),
         x: x,
         name: 'Homeownership Rate',
-        marker: {color: '#f39800'},
+        marker: {
+            color: '#f39800',
+            outliercolor: '#F5F5F5'
+        },
         type: 'box'
+        
     };
     
     // create a data object including all traces we will pass to newplot()
